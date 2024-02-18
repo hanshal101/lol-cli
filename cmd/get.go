@@ -17,8 +17,16 @@ var getCMD = &cobra.Command{
 		}
 		resource := args[0]
 		namespace, _ := cmd.Flags().GetString("ns")
-		if resource == "pods" {
+		if resource == "pods" || resource == "po" {
 			get.GetAllPods(namespace)
+		} else if resource == "deployments" {
+			get.GetDeployments(namespace)
+		} else if resource == "services" || resource == "svc" {
+			get.GetServices(namespace)
+		} else if resource == "namespace" || resource == "ns" {
+			get.GetNamespaces()
+		} else {
+			fmt.Println("Give the correct resource name\nUse lol help or lol get -h for more info")
 		}
 	},
 }

@@ -12,7 +12,6 @@ import (
 	"k8s.io/client-go/util/homedir"
 )
 
-var kubeconfig *string
 var clientset *kubernetes.Clientset
 
 func init() {
